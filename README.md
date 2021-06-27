@@ -29,6 +29,8 @@ Open `http://127.0.0.1:1234` in a web browser.
 
 Play online: https://ttulka.github.io/breadcrumblost/
 
+Desktop only.
+
 ### Breadcrumb Lost
 
 It is easy for children to follow breadcrumbs to get back home. But what about the poor breadcrumbs?!
