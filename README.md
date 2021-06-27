@@ -1,4 +1,4 @@
-# Canvas Images with AssemblyScript
+# 2D Videogame in AssemblyScript
 
 A small demo 2D videogame running in a web browser powered by WebAssembly.
 
