@@ -1,12 +1,12 @@
 # Canvas Images with AssemblyScript
 
-A small 2D game powered by WebAssembly.
+A small demo 2D videogame running in a web browser powered by WebAssembly.
 
 ![Breadcrumb Lost](breadcrumb-lost_preview.gif)
 
 ## Build
 
-## Install 
+### Install package
 
 ```sh
 npm install
@@ -39,14 +39,14 @@ Help a lost breadcrumb to find its way home without getting wet or eaten.
 - **RIGHT** go right
 - **LEFT** go left
 
-## Copyright
-
-Assets taken from https://kenney.nl/assets/pixel-platformer
-
 ## Develop
 
-### Convert images to AS byte arrays
+### Convert images to AssemblyScript byte arrays
 
 ```sh
 node image2array.js assets/image.png > assembly/image.ts
 ```
+
+## Copyright
+
+Assets taken from https://kenney.nl/assets/pixel-platformer
