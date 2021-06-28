@@ -48,10 +48,10 @@ async function start() {
   wasm.start();
 
   const imageData = ctx.getImageData(0, 0, WIDTH, HEIGHT);
-  const bytes = new Uint8ClampedArray(wasm.memory.buffer);
 
   const renderCall = () => writeImageData(imageData, wasm.memory.buffer);
   const updateCall = () => update(wasm, renderCall);
+  
   setInterval(updateCall, 150);
 }
 
