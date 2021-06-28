@@ -1,8 +1,10 @@
-# 2D Videogame in AssemblyScript
+# 2D Video Game in AssemblyScript
 
-A small demo 2D videogame running in a web browser powered by WebAssembly.
+A small demo 2D video game running in a web browser powered by WebAssembly.
 
 ![Breadcrumb Lost](breadcrumb-lost_preview.gif)
+
+*Disclaimer*: This was never intented to be a real game. The purpose is to demonstrate programming games from scratch in AssemblyScript. 
 
 ## Build
 
@@ -35,7 +37,7 @@ Desktop only.
 
 It is easy for children to follow breadcrumbs to get back home. But what about the poor breadcrumbs?!
 
-Help a lost breadcrumb to find its way home without getting wet or eaten.
+Help a lost breadcrumb find its way home without getting wet or eaten.
 
 #### Controls
 
