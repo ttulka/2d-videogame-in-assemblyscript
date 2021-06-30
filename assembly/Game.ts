@@ -7,7 +7,7 @@ import { Monster, Fly } from './Monster';
 
 const JOURNEY_LENGTH = 150; // length of journey base
 
-export enum Control {
+export enum Controls {
     Up = 1,
     Left,
     Right,
@@ -49,7 +49,7 @@ export class Game {
         this.flag = new Flag(this.canvas, JOURNEY_LENGTH * this.level, 18);
     }
 
-    update(control: Control): void {
+    update(control: Controls): void {
         if (!this.player.isAlive()) {
             this.canvas.turnToGray();
             return;
@@ -86,15 +86,15 @@ export class Game {
         return monsters;
     }
 
-    private updatePlayer(control: Control): void {
+    private updatePlayer(control: Controls): void {
         switch (control) {
-            case Control.Right:
+            case Controls.Right:
                 this.player.moveRight();
                 break;
-            case Control.Left:
+            case Controls.Left:
                 this.player.moveLeft();
                 break;
-            case Control.Up:
+            case Controls.Up:
                 this.player.jump();
                 break;
             default:

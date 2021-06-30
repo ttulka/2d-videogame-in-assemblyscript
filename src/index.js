@@ -8,10 +8,10 @@ canvas.height = HEIGHT;
 start();
 
 const Controls = {
-  None: 0,
-  Up: 1,
-  Left: 2,
-  Right: 3,
+  None: 'Controls.None',
+  Up: 'Controls.Up',
+  Right: 'Controls.Right',
+  Left: 'Controls.Left'
 }
 
 let control = Controls.None;
@@ -46,32 +46,28 @@ async function loadWasm() {
 async function start() {
   const wasm = await loadWasm();
   wasm.start();
+  console.log(wasm)
 
   const imageData = ctx.getImageData(0, 0, WIDTH, HEIGHT);
 
-  const renderCall = () => writeImageData(imageData, wasm.memory.buffer);
-  const updateCall = () => update(wasm, renderCall);
-  
+  const updateCall = () => update(wasm, imageData);  
   setInterval(updateCall, 150);
 }
 
-function update(wasm, render) {
-    //console.log('update', new Date())
+function update(wasm, imageData) {
+    //console.log('update', new Date());
+    wasm.update(wasm[control]);
 
-    wasm.update(control);    
+    writeImageData(imageData, wasm.memory.buffer);
     
     control = Controls.None;
-
-    render();
 }
 
 function writeImageData(imageData, buffer) {
   const bytes = new Uint8ClampedArray(buffer);
-  //console.log('bytes length', bytes.length);
-  //console.log('data', bytes[0], bytes[1], bytes[2], bytes[3]);
-  const data = imageData.data;
+  
   for (let i = 0; i < WIDTH * HEIGHT * 4; i++) 
-     data[i] = bytes[i];
+     imageData.data[i] = bytes[i];
 
   ctx.putImageData(imageData, 0, 0);
 }

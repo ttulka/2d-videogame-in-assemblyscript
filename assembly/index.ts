@@ -1,4 +1,4 @@
-import {Game, Control} from './Game';
+import {Game, Controls} from './Game';
 import Canvas from './Canvas';
 import Scene from './Scene';
 import Player from './Player';
@@ -8,10 +8,12 @@ const WIDTH = 100,
 
 const game = new Game(new Canvas(WIDTH, HEIGHT));
 
-export function start(): void {
+function start(): void {
     game.start();
 }
 
-export function update(control: Control): void {
+function update(control: Controls): void {
     game.update(control);
 }
+
+export { Controls, start, update };
