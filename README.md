@@ -6,6 +6,8 @@ A small demo 2D video game running in a web browser powered by WebAssembly.
 
 *Disclaimer*: This was never intented to be a real game. The purpose is to demonstrate programming games from scratch in AssemblyScript. 
 
+See the whole [tutotial on my blog](https://blog.ttulka.com/2d-video-game-in-assemblyscript-tutorial).
+
 ## Build
 
 ### Install package
