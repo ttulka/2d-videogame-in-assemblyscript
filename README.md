@@ -31,7 +31,7 @@ Open `http://127.0.0.1:1234` in a web browser.
 
 ## Play
 
-Play online: https://ttulka.github.io/breadcrumblost/
+Play online at https://ttulka.github.io/breadcrumblost/
 
 Desktop only.
 
