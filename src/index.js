@@ -30,12 +30,19 @@ document.addEventListener('keydown', event => {
     case "ArrowDown":
       control = Controls.Down;
       break;
-}
+    default:
+      control = Controls.None;
+      break;
+  }
+});
+document.addEventListener('keyup', event => {
+  control = Controls.None;
 });
 
 async function loadWasm() {
   const wasm = await WebAssembly
     .instantiateStreaming(fetch('../build/optimized.wasm'), {
+      Date,
       env: {
         abort: (_msg, _file, line, column) => console.error(`Abort at ${line}:${column}`),
         seed: () => new Date().getTime()
@@ -50,8 +57,11 @@ async function start() {
 
   const imageData = ctx.getImageData(0, 0, WIDTH, HEIGHT);
 
-  const updateCall = () => update(wasm, imageData);  
-  setInterval(updateCall, 150);
+  const updateCall = () => { 
+    update(wasm, imageData);  
+    window.requestAnimationFrame(updateCall);
+  }
+  window.requestAnimationFrame(updateCall);
 }
 
 function update(wasm, imageData) {
@@ -59,8 +69,6 @@ function update(wasm, imageData) {
     wasm.update(wasm[control]);
 
     writeImageData(imageData, wasm.memory.buffer);
-    
-    control = Controls.None;
 }
 
 function writeImageData(imageData, buffer) {
