@@ -6,7 +6,7 @@ import { Thing, Direction, Flag, Water } from './Thing';
 import { Monster, Fly } from './Monster';
 
 const JOURNEY_LENGTH = 150; // length of journey base
-const ANIMATION_INTERVAL = 150;
+const FPS = 8;
 
 export enum Controls {
     Up = 1,
@@ -185,7 +185,7 @@ export class Game {
 
     private readyToUpdate(): boolean {
         const now = Date.now();
-        if (now > this.lastUpdate + ANIMATION_INTERVAL) {
+        if (now > this.lastUpdate + 1000 / FPS) {
             this.lastUpdate = now;
             return true;
         }
