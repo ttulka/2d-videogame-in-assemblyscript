@@ -6,6 +6,7 @@ import { Thing, Direction, Flag, Water } from './Thing';
 import { Monster, Fly } from './Monster';
 
 const JOURNEY_LENGTH = 150; // length of journey base
+const FPS = 8;
 
 export enum Controls {
     Up = 1,
@@ -23,6 +24,7 @@ export class Game {
     private flag: Flag;
     private score: Score;
 
+    private lastUpdate: i64;
     private level: i32 = 1;
 
     private canvas: Canvas;
@@ -32,6 +34,7 @@ export class Game {
         this.scene = new Scene(canvas);
         this.player = new Player(canvas);
         this.score = new Score(canvas, canvas.width - 3, canvas.height - 3);
+        this.lastUpdate = Date.now();
 
         this.things = [];
         this.obstacles = [];
@@ -50,6 +53,9 @@ export class Game {
     }
 
     update(control: Controls): void {
+        if (!this.readyToUpdate()) {
+            return;
+        }
         if (!this.player.isAlive()) {
             this.canvas.turnToGray();
             return;
@@ -173,6 +179,15 @@ export class Game {
             if (monster.conflictsWith(player.position().x, player.position().y, player.width())) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    private readyToUpdate(): boolean {
+        const now = Date.now();
+        if (now > this.lastUpdate + 1000 / FPS) {
+            this.lastUpdate = now;
+            return true;
         }
         return false;
     }
