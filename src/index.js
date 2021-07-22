@@ -38,7 +38,7 @@ async function loadWasm() {
     .instantiateStreaming(fetch('../build/optimized.wasm'), {
       env: {
         abort: (_msg, _file, line, column) => console.error(`Abort at ${line}:${column}`),
-        seed: () => new Date().getTime()
+        seed: Date.now
       }});
     return wasm.instance.exports;
 }
