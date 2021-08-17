@@ -1,8 +1,8 @@
 import Canvas from './Canvas';
 
-const fly1Img: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/fly1.png');
-const fly2Img: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/fly2.png');
-const fly3Img: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/fly3.png');
+const fly1Img: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/fly1.png');
+const fly2Img: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/fly2.png');
+const fly3Img: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/fly3.png');
 
 const SIZE = 24;
 const BODY_SIZE = 12;

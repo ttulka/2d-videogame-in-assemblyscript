@@ -1,16 +1,16 @@
 import Canvas from './Canvas';
 
 const digits = [
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit0.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit1.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit2.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit3.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit4.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit5.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit6.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit7.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit8.png'),
-    Inliner.inlineImageAsRGBStaticArray('../assets/digit9.png')
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit0.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit1.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit2.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit3.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit4.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit5.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit6.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit7.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit8.png'),
+    Inliner.inlineImageAsRgbaStaticArray('../assets/digit9.png')
 ];
 
 const WIDTH = 12,

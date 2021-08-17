@@ -1,8 +1,8 @@
 import Canvas from './Canvas';
 
-const flagImg: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/flag.png');
-const waterImg: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/water.png');
-const directionImg: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/direction.png');
+const flagImg: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/flag.png');
+const waterImg: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/water.png');
+const directionImg: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/direction.png');
 
 export class Thing {
 

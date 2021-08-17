@@ -1,8 +1,8 @@
 import Canvas from './Canvas';
 
-const life1: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/life1.png');
-const life2: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/life2.png');
-const life3: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/life3.png');
+const life1: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/life1.png');
+const life2: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/life2.png');
+const life3: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/life3.png');
 
 const WIDTH = 14,
     HEIGHT = 12;

@@ -1,8 +1,8 @@
 import Canvas from './Canvas';
 
-const sky: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/sky.png');
-const forest: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/forest.png');
-const soil: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/soil.png');
+const sky: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/sky.png');
+const forest: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/forest.png');
+const soil: StaticArray<u8> = Inliner.inlineImageAsRgbaStaticArray('../assets/soil.png');
 
 export default class Scene {
 

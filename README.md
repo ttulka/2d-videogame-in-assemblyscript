@@ -52,7 +52,7 @@ Help a lost breadcrumb find its way home without getting wet or eaten.
 ### Convert images to AssemblyScript byte arrays
 
 ```sh
-node image2array.js assets/image.png > assembly/image.ts
+node image2array.js assets/image.png > assembly/assets/image.ts
 ```
 
 ## Copyright

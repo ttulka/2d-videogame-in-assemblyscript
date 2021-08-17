@@ -17,6 +17,6 @@
     }
   },
   "options": {
-    "transform": ["as-inliner"]
+    "transform": ["as-inliner-image"]
   }
 }
