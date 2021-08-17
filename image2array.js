@@ -12,7 +12,7 @@ const data = png.data;
 
 process.stdout.write("const image: u8[] = [");
 
-for (var i = 0, l = data.length; i < l; i += 4) {
+for (let i = 0, l = data.length; i < l; i += 4) {
   const r = data[i];
   const g = data[i + 1];
   const b = data[i + 2];
