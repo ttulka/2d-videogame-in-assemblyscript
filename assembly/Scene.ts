@@ -1,8 +1,8 @@
 import Canvas from './Canvas';
 
-import sky from './assets/sky';
-import forest from './assets/forest';
-import soil from './assets/soil';
+const sky: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/sky.png');
+const forest: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/forest.png');
+const soil: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/soil.png');
 
 export default class Scene {
 
@@ -18,7 +18,7 @@ export default class Scene {
         this.drawLayer(soil, position, 1);
     }
 
-    private drawLayer(image: u8[], offset: i32, speed: i32): void {
+    private drawLayer(image: StaticArray<u8>, offset: i32, speed: i32): void {
         this.canvas.drawBackground(image, speed > 0 ? offset / speed : offset);
     }
 }

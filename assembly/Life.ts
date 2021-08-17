@@ -1,8 +1,8 @@
 import Canvas from './Canvas';
 
-import life1 from './assets/life1';
-import life2 from './assets/life2';
-import life3 from './assets/life3';
+const life1: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/life1.png');
+const life2: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/life2.png');
+const life3: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/life3.png');
 
 const WIDTH = 14,
     HEIGHT = 12;

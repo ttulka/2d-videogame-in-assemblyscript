@@ -1,8 +1,8 @@
 import Canvas from './Canvas';
 
-import fly1Img from './assets/fly1';
-import fly2Img from './assets/fly2';
-import fly3Img from './assets/fly3';
+const fly1Img: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/fly1.png');
+const fly2Img: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/fly2.png');
+const fly3Img: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/fly3.png');
 
 const SIZE = 24;
 const BODY_SIZE = 12;
@@ -24,7 +24,7 @@ enum Vertical {
 export class Monster {
 
     private canvas: Canvas;
-    private images: u8[][];
+    private images: StaticArray<u8>[];
 
     private positionX: i32;
     private positionY: i32;
@@ -35,7 +35,7 @@ export class Monster {
     private hunting: boolean = true;
     private animationStep: i32 = 0;
 
-    constructor(canvas: Canvas, positionX: i32, positionY: i32, images: u8[][]) {
+    constructor(canvas: Canvas, positionX: i32, positionY: i32, images: StaticArray<u8>[]) {
         this.canvas = canvas;
         this.images = images;
         this.positionX = positionX;

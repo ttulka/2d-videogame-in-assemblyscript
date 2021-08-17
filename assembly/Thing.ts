@@ -1,8 +1,8 @@
 import Canvas from './Canvas';
 
-import flagImg from './assets/flag';
-import waterImg from './assets/water';
-import directionImg from './assets/direction';
+const flagImg: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/flag.png');
+const waterImg: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/water.png');
+const directionImg: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/direction.png');
 
 export class Thing {
 
@@ -12,10 +12,10 @@ export class Thing {
     private positionY: i32;
 
     private canvas: Canvas;
-    private image: u8[];
+    private image: StaticArray<u8>;
     private hit: boolean = false;
 
-    constructor(canvas: Canvas, image: u8[], width: i32, height: i32, positionX: i32, positionY: i32) {
+    constructor(canvas: Canvas, image: StaticArray<u8>, width: i32, height: i32, positionX: i32, positionY: i32) {
         this.canvas = canvas;
         this.image = image;
         this.width = width;

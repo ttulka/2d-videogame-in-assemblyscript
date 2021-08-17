@@ -1,7 +1,7 @@
 import Canvas from './Canvas';
 import Life from './Life';
 
-import image from './assets/player';
+const image: StaticArray<u8> = Inliner.inlineImageAsRGBStaticArray('../assets/player.png');
 
 const WIDTH = 16,
     HEIGHT: i32 = WIDTH,

@@ -8,7 +8,7 @@ export default class Canvas {
         this.height = height;
     }
 
-    drawImage(image: u8[], posX: i32, posY: i32, width: i32, height: i32, red: boolean = false): void {
+    drawImage(image: StaticArray<u8>, posX: i32, posY: i32, width: i32, height: i32, red: boolean = false): void {
         if (posX + width < 0 || posX > this.width) {
             return; // not visible
         }
@@ -38,7 +38,7 @@ export default class Canvas {
         }
     }
 
-    drawBackground(image: u8[], imageOffsetX: i32 = 0): void {
+    drawBackground(image: StaticArray<u8>, imageOffsetX: i32 = 0): void {
         for (let y = 0; y < this.height; y++) {
             for (let x = 0; x < this.width; x++) {
 

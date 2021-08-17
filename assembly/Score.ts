@@ -1,20 +1,20 @@
 import Canvas from './Canvas';
 
-import digit0 from './assets/digit0';
-import digit1 from './assets/digit1';
-import digit2 from './assets/digit2';
-import digit3 from './assets/digit3';
-import digit4 from './assets/digit4';
-import digit5 from './assets/digit5';
-import digit6 from './assets/digit6';
-import digit7 from './assets/digit7';
-import digit8 from './assets/digit8';
-import digit9 from './assets/digit9';
+const digits = [
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit0.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit1.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit2.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit3.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit4.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit5.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit6.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit7.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit8.png'),
+    Inliner.inlineImageAsRGBStaticArray('../assets/digit9.png')
+];
 
 const WIDTH = 12,
     HEIGHT = 14;
-
-const digits = [digit0, digit1, digit2, digit3, digit4, digit5, digit6, digit7, digit8, digit9];
 
 export default class Score {
     
