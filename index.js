@@ -1,10 +1,18 @@
 const fs = require('fs');
+const readline = require('readline');
 const Canvas = require('drawille');
 
 const WIDTH = 100, HEIGHT = 100;
 const RENDER_THRESHOLD = 80;
 
 const canvas = new Canvas(WIDTH, HEIGHT);
+
+process.on('SIGINT', () => {
+  console.clear();
+  process.exit(0);
+});
+
+console.clear();
 
 start();
 
@@ -82,5 +90,6 @@ function render(buffer) {
       }
     }
   }
+  readline.cursorTo(process.stdout, 0, 0);
   process.stdout.write(canvas.frame());
 }
