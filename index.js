@@ -1,6 +1,10 @@
 const fs = require('fs');
+const Canvas = require('drawille');
 
 const WIDTH = 100, HEIGHT = 100;
+const RENDER_THRESHOLD = 80;
+
+const canvas = new Canvas(WIDTH, HEIGHT);
 
 start();
 
@@ -50,10 +54,10 @@ async function loadWasm() {
 async function start() {
   const wasm = await loadWasm();
   wasm.start();
-  console.log(wasm);
+  //console.log(wasm);
 
   const updateCall = () => update(wasm);
-  //setInterval(updateCall, 500);
+  setInterval(updateCall, 500);
 }
 
 function update(wasm) {
@@ -63,8 +67,20 @@ function update(wasm) {
 
 function render(buffer) {
   const bytes = new Uint8ClampedArray(buffer);
+  canvas.clear();
   
-  for (let i = 0; i < WIDTH * HEIGHT * 4; i++) {
-    // TODO render bytes[i];
+  for (let x = 0; x < WIDTH; x++) {
+    for (let y = 0; y < HEIGHT; y++) {
+      const i = x * 4 + y * WIDTH * 4;
+      const r = bytes[i];
+      const g = bytes[i + 1];
+      const b = bytes[i + 2];
+      const gray = r * 0.2126 + g * 0.7152 + b * 0.0722;
+
+      if (gray > RENDER_THRESHOLD) {
+        canvas.set(x, y);
+      }
+    }
   }
+  process.stdout.write(canvas.frame());
 }

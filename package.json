@@ -11,7 +11,8 @@
   "author": "Tomas Tulka (ttulka)",
   "license": "MIT",
   "dependencies": {
-    "@assemblyscript/loader": "^0.19.11"
+    "@assemblyscript/loader": "^0.19.11",
+    "drawille": "^1.1.1"
   },
   "devDependencies": {
     "as-inliner-image": "^0.0.1",
