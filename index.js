@@ -3,16 +3,14 @@ const readline = require('readline');
 const Canvas = require('drawille');
 
 const WIDTH = 100, HEIGHT = 100;
-const RENDER_THRESHOLD = 80;
+const RENDER_THRESHOLD = 120;
 
 const canvas = new Canvas(WIDTH, HEIGHT);
 
-process.on('SIGINT', () => {
-  console.clear();
-  process.exit(0);
-});
-
 console.clear();
+
+readline.emitKeypressEvents(process.stdin);
+process.stdin.setRawMode(true);
 
 start();
 
@@ -25,28 +23,29 @@ const Controls = {
 
 let control = Controls.None;
 
-// document.addEventListener('keydown', event => {
-//   switch (event.key) {
-//     case "ArrowLeft":
-//       control = Controls.Left;
-//       break;
-//     case "ArrowRight":
-//       control = Controls.Right;
-//       break;
-//     case "ArrowUp":
-//       control = Controls.Up;
-//       break;
-//     case "ArrowDown":
-//       control = Controls.Down;
-//       break;
-//     default:
-//       control = Controls.None;
-//       break;
-//   }
-// });
-// document.addEventListener('keyup', event => {
-//   control = Controls.None;
-// });
+process.stdin.on('keypress', (_, key) => {
+  if (key.ctrl && key.name === 'c') {
+    console.clear();
+    process.exit(0);
+  }
+  switch (key.name) {
+    case "left":
+      control = Controls.Left;
+      break;
+    case "right":
+      control = Controls.Right;
+      break;
+    case "up":
+      control = Controls.Up;
+      break;
+    case "down":
+      control = Controls.Down;
+      break;
+    default:
+      control = Controls.None;
+      break;
+  }
+});
 
 async function loadWasm() {
   const wasm = await WebAssembly
@@ -65,12 +64,13 @@ async function start() {
   //console.log(wasm);
 
   const updateCall = () => update(wasm);
-  setInterval(updateCall, 500);
+  setInterval(updateCall, 100);
 }
 
 function update(wasm) {
     wasm.update(wasm[control]);
     render(wasm.memory.buffer);
+    control = Controls.None;
 }
 
 function render(buffer) {
