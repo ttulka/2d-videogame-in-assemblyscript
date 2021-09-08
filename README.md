@@ -1,6 +1,6 @@
 # 2D Video Game in AssemblyScript
 
-A small demo 2D video game running in a web browser powered by WebAssembly.
+A small demo 2D video game running in a terminal powered by WebAssembly and Node.js.
 
 ![Breadcrumb Lost](breadcrumb-lost_preview.gif)
 
@@ -24,10 +24,8 @@ npm run asbuild:optimized -- --memoryBase 40000
 
 ## Run
 ```sh
-npx ws -p 1234
+node index.js
 ```
-
-Open `http://127.0.0.1:1234` in a web browser.
 
 ## Play
 
@@ -46,14 +44,6 @@ Help a lost breadcrumb find its way home without getting wet or eaten.
 - **UP** jump
 - **RIGHT** go right
 - **LEFT** go left
-
-## Develop
-
-### Convert images to AssemblyScript byte arrays
-
-```sh
-node image2array.js assets/image.png > assembly/assets/image.ts
-```
 
 ## Copyright
 
