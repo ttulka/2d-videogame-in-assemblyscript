@@ -47,14 +47,6 @@ Help a lost breadcrumb find its way home without getting wet or eaten.
 - **RIGHT** go right
 - **LEFT** go left
 
-## Develop
-
-### Convert images to AssemblyScript byte arrays
-
-```sh
-node image2array.js assets/image.png > assembly/assets/image.ts
-```
-
 ## Copyright
 
 Assets taken from https://kenney.nl/assets/pixel-platformer
