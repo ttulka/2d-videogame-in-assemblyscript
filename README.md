@@ -6,7 +6,13 @@ A small demo 2D video game running in a web browser powered by WebAssembly.
 
 *Disclaimer*: This was never intented to be a real game. The purpose is to demonstrate programming games from scratch in AssemblyScript. 
 
-See the whole [tutorial on my blog](https://blog.ttulka.com/2d-video-game-in-assemblyscript-tutorial).
+**📖 Read the whole [tutorial on my blog](https://blog.ttulka.com/2d-video-game-in-assemblyscript-tutorial).**
+
+Check out alternative technical approaches:
+
+- [Control of the game rendering loop within Wasm](https://github.com/ttulka/2d-videogame-in-assemblyscript/tree/requestAnimationFrame) ([blog post](https://blog.ttulka.com/animation-in-canvas-with-webassembly))
+- [Automatic inlining of image assets](https://github.com/ttulka/2d-videogame-in-assemblyscript/tree/inliner)
+- [Rendering and game controls in a text terminal](https://github.com/ttulka/2d-videogame-in-assemblyscript/tree/terminal-rendering)
 
 ## Build
 
