@@ -48,7 +48,7 @@ async function start() {
   wasm.start();
   console.log(wasm)
 
-  const mem = new Uint32Array(wasm.memory.buffer);  // 32bit => 8bit color * 4 (RGB)
+  const mem = new Uint32Array(wasm.memory.buffer);  // 32bit => 8bit color * 4 (RGBA)
   
   const imageData = ctx.createImageData(WIDTH, HEIGHT);
   const argb = new Uint32Array(imageData.data.buffer);
