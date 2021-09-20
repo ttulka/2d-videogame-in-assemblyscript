@@ -1,4 +1,4 @@
-const WIDTH = 100, HEIGHT = 100;
+const WIDTH = 100, HEIGHT = 100, SIZE = WIDTH * HEIGHT;
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
@@ -48,26 +48,19 @@ async function start() {
   wasm.start();
   console.log(wasm)
 
-  const imageData = ctx.getImageData(0, 0, WIDTH, HEIGHT);
+  const mem = new Uint32Array(wasm.memory.buffer);  // 32bit => 8bit color * 4 (RGB)
+  
+  const imageData = ctx.createImageData(WIDTH, HEIGHT);
+  const argb = new Uint32Array(imageData.data.buffer);
 
-  const updateCall = () => update(wasm, imageData);  
+  const updateCall = () => update(wasm, mem, imageData, argb);  
   setInterval(updateCall, 150);
 }
 
-function update(wasm, imageData) {
-    //console.log('update', new Date());
+function update(wasm, mem, imageData, argb) {
     wasm.update(wasm[control]);
-
-    writeImageData(imageData, wasm.memory.buffer);
+    control = Controls.None;    // reset controls    
     
-    control = Controls.None;
-}
-
-function writeImageData(imageData, buffer) {
-  const bytes = new Uint8ClampedArray(buffer);
-  
-  for (let i = 0; i < WIDTH * HEIGHT * 4; i++) 
-     imageData.data[i] = bytes[i];
-
-  ctx.putImageData(imageData, 0, 0);
+    argb.set(mem.subarray(0, SIZE));    // copy output to image buffer
+    ctx.putImageData(imageData, 0, 0);  // apply image buffer
 }
