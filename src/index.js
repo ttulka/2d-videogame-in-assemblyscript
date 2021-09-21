@@ -67,13 +67,6 @@ async function start() {
   window.requestAnimationFrame(updateCall);
 }
 
-function update(wasm, imageData) {
-    //console.log('update', new Date());
-    wasm.update(wasm[control]);
-
-    writeImageData(imageData, wasm.memory.buffer);
-}
-
 function update(wasm, mem, imageData, argb) {
   wasm.update(wasm[control]);    
   
