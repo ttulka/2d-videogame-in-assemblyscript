@@ -60,14 +60,16 @@ async function start() {
   const imageData = ctx.createImageData(WIDTH, HEIGHT);
   const argb = new Uint32Array(imageData.data.buffer);
 
-  const updateCall = () => update(wasm, mem, imageData, argb);  
-  setInterval(updateCall, 150);
+  const updateCall = () => { 
+    update(wasm, mem, imageData, argb);  
+    window.requestAnimationFrame(updateCall);
+  }
+  window.requestAnimationFrame(updateCall);
 }
 
 function update(wasm, mem, imageData, argb) {
-    wasm.update(wasm[control]);
-    control = Controls.None;    // reset controls    
-    
-    argb.set(mem.subarray(0, SIZE));    // copy output to image buffer
-    ctx.putImageData(imageData, 0, 0);  // apply image buffer
+  wasm.update(wasm[control]);    
+  
+  argb.set(mem.subarray(0, SIZE));    // copy output to image buffer
+  ctx.putImageData(imageData, 0, 0);  // apply image buffer
 }
